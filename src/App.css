@@ -15,6 +15,9 @@ img{
     overflow: hidden;
     position: relative;
 }
+.overflow-hidden{
+    overflow: hidden;
+}
 
 /* header styles */
 
@@ -25,8 +28,8 @@ img{
     padding: 20px 50px;
 }
 .header__left{
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
 }
 .header__right{
     display: flex;
@@ -35,31 +38,46 @@ img{
     color: #fff;
 }
 .calendar__outerWrap{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     padding: 6px;
     background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
+    border-radius: 8px;
 }
 .calendar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-items: center;
     width: 100%;
     height: 100%;
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: #9b51e0;
 }
 .calendar__text{
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 1.2;
 }
 .calendar__text span{
     display: block;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 300;
     color: rgba(255, 255, 255, 0.5);
+}
+
+.top-stars{
+    position: absolute;
+    width: 85%;
+    height: 220px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .container__header{
+        padding: 20px 10px;
+    }
 }
 
 /* Hero Section Styles */
@@ -67,21 +85,25 @@ img{
 .container__hero{
     color: #fff;
     text-align: center;
+    position: relative;
 }
 .hero-text1 h1{
+    font-family: 'Poppins', sans-serif;
     font-size: 60px;
     font-weight: 400;
     line-height: 1;
 }
-.hero-text1 h1 span{
+.hero-text1 h1 .new-line-1{
     display: block;
     font-weight: 800;
 }
 
 .hero-text2{
     margin-top: 15px;
+    font-size: 22px;
+    line-height: 1.2;
 }
-.hero-text2 p .new-line{
+.hero-text2 p .new-line-3{
     display: block;
 }
 .bold{
@@ -94,6 +116,7 @@ img{
     padding: 20px 15px;
     margin: 15px auto;
     font-size: 14px;
+    font-weight: 400;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.39) -213.5%, rgba(255, 255, 255, 0) 100%);
     box-shadow: inset 0px -1px 11px rgba(255, 255, 255, 0.17), inset 0px 2px 0px rgba(255, 255, 255, 0.24);
     border-radius: 8px;
@@ -101,13 +124,13 @@ img{
 
 .instructions-header{
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 600;
     text-align: center;
     margin-bottom: 10px;
 }
 .instructions-list{
-    
     list-style-position: inside;
+    line-height: 1.5;
 }
 .warning{
     font-size: 16px;
@@ -138,8 +161,59 @@ img{
     gap: 20px;
 }
 
-
-
+@media screen and (max-width: 768px) {
+    .hero-text1 h1{
+        font-size: 48px;
+    }
+    .hero-text2{
+        font-size: 18px;
+    }
+}
+@media screen and (max-width: 640px) {
+    .container__hero{
+        margin-top: 15px;
+    }
+    .hero-text1 h1{
+        font-size: 45px;
+    }
+    .hero-text2{
+        font-size: 14px;
+    }
+    .hero-text1 h1 .new-line-1{
+        display: initial;
+    }
+    .hero-text1 h1 .new-line-2{
+        display: block;
+    }
+    .hero-text2 p .new-line-3{
+        display: initial;
+    }
+    .hero-text2 p .new-line-4{
+        display: block;
+    }
+}
+@media screen and (max-width: 460px){
+    .container__hero{
+        padding: 0 10px;
+    }
+    .hero-text1 h1{
+        font-size: 40px;
+    }
+    .hero-text2{
+        font-size: 12px;
+    }
+    .instructions__wrap{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 360px){
+    .hero-text1 h1{
+        font-size: 30px;
+    }
+    .hero-text2{
+        font-size: 10px;
+    }
+}
 
 /* bottom animation styles */
 
@@ -160,6 +234,7 @@ img{
     height: 100px;
     width: 100%;
     position: absolute;
+    bottom: 0;
 }
 
 .rays-wrap{
@@ -231,6 +306,7 @@ img{
 
  .star{
    position: absolute;
+   bottom: -10px;
   
  }
  
@@ -242,9 +318,6 @@ img{
     background-color: rgba(255, 229, 0, 0.9);
     border-radius: 100%;
     z-index: 2;
-    
-
-
  }
  .star::after{
     transform:rotateZ(90deg);
@@ -266,13 +339,10 @@ img{
     animation: pulse 2s linear infinite; 
  }
  .pulse::after{
-    animation: pulse 2s 2s linear infinite; 
+    animation: pulse 2s 500ms linear infinite; 
  }
-
-
-
  .star1{
-    animation: move1 7s ease-out infinite;
+    animation: move1 7s 1.5s ease-out infinite;
     transform: scale(0.5);
  }
  .star2{
@@ -280,9 +350,33 @@ img{
     transform: scale(0.6) rotate(40deg);
  }
  .star3{
-    animation: move3 12s 1s ease-out infinite;
+    animation: move3 12s 1.7s ease-out infinite;
     transform: scale(0.5) rotate(30deg);
  }
+ @media screen and (max-width: 300px){
+    .coin-pot{
+        height: 70px;
+    }
+ }
+
+ .slide-in-0{
+    animation: slideIn 1.3s 200ms ease-in both;
+  }
+ .slide-in-0-5{
+    animation: slideIn 1.3s 300ms ease-in both;
+  }
+ .slide-in-1 {
+    animation: slideIn 1.3s 500ms ease-in both;
+  }
+  .slide-in-2{
+    animation: slideIn 1.3s 600ms ease-in both;
+  }
+  .slide-in-3{
+    animation: slideIn 1.3s 700ms ease-in both;
+  }
+  .fade-in{
+    animation: fadeIn 1s 250ms ease-in both;
+  }
 
  /* KeyFrames */
 
@@ -298,10 +392,10 @@ img{
 
  @keyframes bounce {
     from{
-        transform: translateY(30px);
+        transform: translateY(0);
     }
     to{
-        transform: translateY(0);
+        transform: translateY(50px);
     }
  }
 
@@ -348,3 +442,29 @@ img{
         opacity: 0.1;
     }
  }
+
+ @keyframes slideIn {
+    0% {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    30%{
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    50% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    30%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+  }
